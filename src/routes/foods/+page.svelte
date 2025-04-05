@@ -127,7 +127,44 @@
     <div class="card preset-filled-surface-100-900 p-4 text-center">
       <p>No matching recipes found</p>
     </div>
+  {:else if searchTerm.trim()}
+    <!-- When searching, show a flat list without category headers -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {#each sortedRecipes as recipe}
+        <article class="card preset-filled-surface-100-900 p-4">
+          <header class="flex justify-between items-start mb-2">
+            <h3 class="h3">{recipe.name}</h3>
+            <span class="chip preset-filled-primary-500">${recipe.sellPrice}</span>
+          </header>
+
+          <p class="opacity-75 mb-4">{recipe.description}</p>
+
+          <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+            <div class="flex items-center gap-1">
+              <span>🍳</span>
+              <span>{recipe.recipeCategory}</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span>📚</span>
+              <span>{recipe.source}</span>
+            </div>
+          </div>
+
+          {#if recipe.recipe && recipe.recipe.length > 0}
+            <div class="mb-2">
+              <h4 class="font-bold">Recipe:</h4>
+              <ul class="list-disc list-inside">
+                {#each recipe.recipe as ingredient}
+                  <li>{ingredient.quantity} {ingredient.item}</li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
+        </article>
+      {/each}
+    </div>
   {:else}
+    <!-- When not searching, show recipes grouped by category with headers -->
     <div class="space-y-8">
       {#each categories as category}
         <section>
