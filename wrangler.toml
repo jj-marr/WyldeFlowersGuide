@@ -1,3 +1,24 @@
 # Wrangler configuration for Cloudflare Pages
 name = "wyldeflowersguide"
 compatibility_date = "2025-04-05"
+
+# Build configuration
+[build]
+command = "npm run build"
+output_directory = ".svelte-kit/cloudflare"
+
+# Environment variables
+[vars]
+NODE_VERSION = "18"
+
+# Production environment
+[env.production]
+workers_dev = false
+routes = [
+  { pattern = "wyldeflowersguide.pages.dev/*", zone_name = "wyldeflowersguide.pages.dev" }
+]
+
+# Staging environment
+[env.staging]
+name = "wyldeflowersguide-staging"
+workers_dev = true
