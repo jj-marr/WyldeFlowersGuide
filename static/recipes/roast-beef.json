@@ -8,5 +8,6 @@
     { "item": "Carrot", "quantity": 1 }
   ],
   "recipeCategory": "Oven",
-  "source": "Recipes for Meat-Lovers"
+  "source": "Recipes for Meat-Lovers",
+  "favouriteOf": "Westley"
 }

@@ -21,6 +21,7 @@
     recipe: Ingredient[];
     recipeCategory: string;
     source: string;
+    favouriteOf?: string;
   }
 
   function toggleSort(field: string): void {
@@ -42,6 +43,7 @@
       recipe.description.toLowerCase().includes(term) ||
       recipe.recipeCategory?.toLowerCase().includes(term) ||
       recipe.source?.toLowerCase().includes(term) ||
+      recipe.favouriteOf?.toLowerCase().includes(term) ||
       recipe.recipe?.some((ingredient: Ingredient) => ingredient.item.toLowerCase().includes(term))
     );
   });
@@ -89,7 +91,7 @@
     <input
       type="text"
       bind:value={searchTerm}
-      placeholder="Search recipes by name, ingredients, or category..."
+      placeholder="Search recipes by name, ingredients, category, or character favourites..."
       class="input w-full"
     >
 
@@ -148,6 +150,12 @@
               <span>📚</span>
               <span>{recipe.source}</span>
             </div>
+            {#if recipe.favouriteOf}
+              <div class="flex items-center gap-1 col-span-2">
+                <span>❤️</span>
+                <span>{recipe.favouriteOf}'s favourite</span>
+              </div>
+            {/if}
           </div>
 
           {#if recipe.recipe && recipe.recipe.length > 0}
@@ -193,6 +201,12 @@
                     <span>📚</span>
                     <span>{recipe.source}</span>
                   </div>
+                  {#if recipe.favouriteOf}
+                    <div class="flex items-center gap-1 col-span-2">
+                      <span>❤️</span>
+                      <span>{recipe.favouriteOf}'s favourite</span>
+                    </div>
+                  {/if}
                 </div>
 
                 {#if recipe.recipe && recipe.recipe.length > 0}
