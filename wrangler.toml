@@ -1,10 +1,3 @@
 # Wrangler configuration for Cloudflare Pages
 name = "wyldeflowersguide"
 compatibility_date = "2025-04-05"
-
-[build]
-command = "npm ci && npm run build"
-output_directory = ".svelte-kit/cloudflare"
-
-[build.environment]
-NODE_VERSION = "20"  # Use Node.js 20.x for the build
