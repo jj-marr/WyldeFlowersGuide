@@ -2,10 +2,10 @@
 name = "wyldeflowersguide"
 compatibility_date = "2025-04-05"
 
-# Build configuration
+# Build configuration for SvelteKit with static adapter
 [build]
 command = "npm run build"
-output_directory = ".svelte-kit/cloudflare"
+output_directory = "build"
 
 # Environment variables
 [vars]
