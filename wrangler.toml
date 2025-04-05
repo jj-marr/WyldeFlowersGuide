@@ -2,14 +2,16 @@
 name = "wyldeflowersguide"
 compatibility_date = "2025-04-05"
 
-# Build configuration for SvelteKit with static adapter
+# Pages configuration
+pages_build_output_dir = "build"
+
+# Build configuration
 [build]
 command = "npm run build"
-output_directory = "build"
 
 # Environment variables
 [vars]
-NODE_VERSION = "18"
+NODE_VERSION = "20"
 
 # Production environment
 [env.production]
