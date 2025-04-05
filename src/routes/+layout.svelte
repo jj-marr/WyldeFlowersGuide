@@ -15,7 +15,7 @@
   <Navigation.Rail {value} onValueChange={(newValue) => (value = newValue)}>
     {#snippet tiles()}
       <Navigation.Tile href="/" label="Home"><IconHome /></Navigation.Tile>
-      <Navigation.Tile href="/food" label="Foods"><IconFood /></Navigation.Tile>
+      <Navigation.Tile href="/foods" label="Foods"><IconFood /></Navigation.Tile>
     {/snippet}
   </Navigation.Rail>
 

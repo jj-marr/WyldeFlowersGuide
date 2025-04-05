@@ -1,0 +1,13 @@
+{
+  "name": "Apple Pie",
+  "description": "A delicious dessert made with fresh apples and a flaky crust.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Apple",    "quantity": 1 },
+    { "item": "Cinnamon", "quantity": 1},
+    { "item": "Flour",    "quantity": 1 },
+    { "item": "Sugar",    "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Wherefore Art Thou Juliet (quest)"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Roast Beef",
+  "description": "A hearty meal of roast beef, potatoes, and vegetables.",
+  "sellPrice": 100,
+  "recipe": [
+    { "item": "Beef", "quantity": 1 },
+    { "item": "Potato", "quantity": 1 },
+    { "item": "Carrot", "quantity": 1 }
+  ],
+  "recipeCategory": "Oven",
+  "source": "Recipes for Meat-Lovers"
+}
