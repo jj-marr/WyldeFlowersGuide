@@ -9,17 +9,5 @@ pages_build_output_dir = "build"
 [build]
 command = "npm run build"
 
-# Production environment
-[env.production]
-workers_dev = false
-routes = [
-  { pattern = "wyldeflowersguide.pages.dev/*", zone_name = "wyldeflowersguide.pages.dev" }
-]
-
-[env.production.vars]
+[vars]
 NODE_VERSION = "20"
-
-# Staging environment
-[env.staging]
-name = "wyldeflowersguide-staging"
-workers_dev = true
