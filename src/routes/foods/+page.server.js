@@ -1,3 +1,5 @@
+export const prerender = true;
+
 /** @typedef {Object} Ingredient
  * @property {string} item - The ingredient name
  * @property {number} quantity - The quantity needed
