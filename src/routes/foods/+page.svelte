@@ -2,7 +2,8 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
-  let recipes = data.recipes || [];
+  // Ensure data.recipes exists before assigning, providing a default empty array
+  let recipes = Array.isArray(data?.recipes) ? data.recipes : [];
   let searchTerm = '';
   let sortBy = 'recipeCategory';
   let sortOrder = 'asc';
