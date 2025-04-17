@@ -1,9 +1,16 @@
 <script lang="ts">
+  import { Switch } from '@skeletonlabs/skeleton-svelte';
+
   /** @type {import('./$types').PageData} */
   export let data;
 
-  // Ensure data.recipes exists before assigning, providing a default empty array
-  let recipes = Array.isArray(data?.recipes) ? data.recipes : [];
+  // Ensure data.recipes exists and add cooked/gifted properties
+  let recipes = Array.isArray(data?.recipes) ? data.recipes.map(recipe => ({
+    ...recipe,
+    cooked: recipe.cooked ?? false,
+    gifted: recipe.gifted ?? false,
+  })) : [];
+
   let searchTerm = '';
   let sortBy = 'recipeCategory';
   let sortOrder = 'asc';
@@ -18,11 +25,13 @@
     id: string;
     name: string;
     description: string;
-    sellPrice: number;
+    sellPrice: number; // Keeping this for now, but it won't be displayed
     recipe: Ingredient[];
     recipeCategory: string;
     source: string;
     favouriteOf?: string;
+    cooked: boolean;
+    gifted: boolean;
   }
 
   function toggleSort(field: string): void {
@@ -105,12 +114,6 @@
         Name {sortBy === 'name' ? (sortOrder === 'asc' ? '↑' : '↓') : ''}
       </button>
       <button
-        class="chip {sortBy === 'sellPrice' ? 'preset-filled-primary-500' : 'preset-tonal'}"
-        on:click={() => toggleSort('sellPrice')}
-      >
-        Price {sortBy === 'sellPrice' ? (sortOrder === 'asc' ? '↑' : '↓') : ''}
-      </button>
-      <button
         class="chip {sortBy === 'recipeCategory' ? 'preset-filled-primary-500' : 'preset-tonal'}"
         on:click={() => toggleSort('recipeCategory')}
       >
@@ -137,7 +140,16 @@
         <article class="card preset-filled-surface-100-900 p-4">
           <header class="flex justify-between items-start mb-2">
             <h3 class="h3">{recipe.name}</h3>
-            <span class="chip preset-filled-primary-500">${recipe.sellPrice}</span>
+            <div class="flex gap-2">
+              <Switch name={`cooked-${recipe.id}`} bind:checked={recipe.cooked} compact controlActive="bg-success-500">
+                {#snippet inactiveChild()}🍳{/snippet}
+                {#snippet activeChild()}✅{/snippet}
+              </Switch>
+              <Switch name={`gifted-${recipe.id}`} bind:checked={recipe.gifted} compact controlActive="bg-tertiary-500">
+                {#snippet inactiveChild()}🎁{/snippet}
+                {#snippet activeChild()}🎀{/snippet}
+              </Switch>
+            </div>
           </header>
 
           <p class="opacity-75 mb-4">{recipe.description}</p>
@@ -188,8 +200,29 @@
               <article class="card preset-filled-surface-100-900 p-4">
                 <header class="flex justify-between items-start mb-2">
                   <h3 class="h3">{recipe.name}</h3>
-                  <span class="chip preset-filled-primary-500">${recipe.sellPrice}</span>
-                </header>
+            <div class="flex gap-2">
+              <Switch
+                name={`cooked-${recipe.id}`}
+                checked={recipe.cooked}
+                onCheckedChange={(e) => recipe.cooked = e.checked}
+                compact
+                controlActive="bg-success-500"
+              >
+                {#snippet inactiveChild()}🍳{/snippet}
+                {#snippet activeChild()}✅{/snippet}
+              </Switch>
+              <Switch
+                name={`gifted-${recipe.id}`}
+                checked={recipe.gifted}
+                onCheckedChange={(e) => recipe.gifted = e.checked}
+                compact
+                controlActive="bg-tertiary-500"
+              >
+                {#snippet inactiveChild()}🎁{/snippet}
+                {#snippet activeChild()}🎀{/snippet}
+              </Switch>
+            </div>
+          </header>
 
                 <p class="opacity-75 mb-4">{recipe.description}</p>
 
