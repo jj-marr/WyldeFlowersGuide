@@ -6,7 +6,7 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
-  const RECIPE_STATUS_KEY = 'recipeStatus';
+  const RECIPE_STATUS_KEY = 'wyldeFlowersRecipeStatus'; // More unique key
 
   // Type for storing status in localStorage
   interface RecipeStatus {
@@ -57,6 +57,7 @@
             const saved = savedStatuses[recipe.id];
             return saved ? { ...recipe, cooked: saved.cooked, gifted: saved.gifted } : recipe;
           });
+          console.log('Loaded recipe statuses from localStorage:', savedStatuses);
         } catch (e) {
           console.error("Failed to parse recipe statuses from localStorage", e);
           localStorage.removeItem(RECIPE_STATUS_KEY); // Clear corrupted data
@@ -65,18 +66,32 @@
     }
   });
 
-  // Reactive statement to save status to localStorage whenever recipes change
-  $: if (browser && recipes) {
-    const statusesToSave: AllRecipeStatuses = recipes.reduce((acc, recipe) => {
-      acc[recipe.id] = { cooked: recipe.cooked, gifted: recipe.gifted };
-      return acc;
-    }, {} as AllRecipeStatuses);
-    localStorage.setItem(RECIPE_STATUS_KEY, JSON.stringify(statusesToSave));
-    // console.log('Recipe statuses saved to localStorage'); // Optional: for debugging
+  // Function to update a recipe's status and trigger reactivity
+  function updateRecipeStatus(recipeId: string, property: 'cooked' | 'gifted', value: boolean): void {
+    // Create a new array to trigger reactivity
+    recipes = recipes.map(recipe =>
+      recipe.id === recipeId
+        ? { ...recipe, [property]: value }
+        : recipe
+    );
+
+    // Save to localStorage immediately
+    if (browser) {
+      const statusesToSave: AllRecipeStatuses = recipes.reduce((acc, recipe) => {
+        acc[recipe.id] = { cooked: recipe.cooked, gifted: recipe.gifted };
+        return acc;
+      }, {} as AllRecipeStatuses);
+
+      try {
+        localStorage.setItem(RECIPE_STATUS_KEY, JSON.stringify(statusesToSave));
+        console.log('Recipe statuses saved to localStorage:', statusesToSave);
+      } catch (e) {
+        console.error('Failed to save recipe statuses to localStorage:', e);
+      }
+    }
   }
 
-
-  function toggleSort(field: string): void {
+  function toggleSort(field: keyof Recipe): void {
     if (sortBy === field) {
       sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
@@ -110,7 +125,7 @@
       return sortOrder === 'asc' ? valueA - valueB : valueB - valueA;
     }
 
-    // Handle string values
+
     valueA = String(valueA || '').toLowerCase();
     valueB = String(valueB || '').toLowerCase();
 
@@ -186,7 +201,7 @@
               <Switch
                 name={`cooked-${recipe.id}`}
                 checked={recipe.cooked}
-                onCheckedChange={(e) => recipe.cooked = e.checked}
+                onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'cooked', e.checked)}
                 compact
                 controlActive="bg-success-500"
               >
@@ -196,7 +211,7 @@
               <Switch
                 name={`gifted-${recipe.id}`}
                 checked={recipe.gifted}
-                onCheckedChange={(e) => recipe.gifted = e.checked}
+                onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
                 compact
                 controlActive="bg-tertiary-500"
               >
@@ -258,7 +273,7 @@
                     <Switch
                       name={`cooked-${recipe.id}`}
                       checked={recipe.cooked}
-                      onCheckedChange={(e) => recipe.cooked = e.checked}
+                      onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'cooked', e.checked)}
                       compact
                       controlActive="bg-success-500"
                     >
@@ -268,7 +283,7 @@
                     <Switch
                       name={`gifted-${recipe.id}`}
                       checked={recipe.gifted}
-                      onCheckedChange={(e) => recipe.gifted = e.checked}
+                      onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
                       compact
                       controlActive="bg-tertiary-500"
                     >
