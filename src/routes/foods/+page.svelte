@@ -1,19 +1,19 @@
 <script lang="ts">
   import { Switch } from '@skeletonlabs/skeleton-svelte';
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
 
   /** @type {import('./$types').PageData} */
   export let data;
 
-  // Ensure data.recipes exists and add cooked/gifted properties
-  let recipes = Array.isArray(data?.recipes) ? data.recipes.map(recipe => ({
-    ...recipe,
-    cooked: recipe.cooked ?? false,
-    gifted: recipe.gifted ?? false,
-  })) : [];
+  const RECIPE_STATUS_KEY = 'recipeStatus';
 
-  let searchTerm = '';
-  let sortBy = 'recipeCategory';
-  let sortOrder = 'asc';
+  // Type for storing status in localStorage
+  interface RecipeStatus {
+    cooked: boolean;
+    gifted: boolean;
+  }
+  type AllRecipeStatuses = Record<string, RecipeStatus>;
 
   // Define TypeScript interfaces
   interface Ingredient {
@@ -33,6 +33,48 @@
     cooked: boolean;
     gifted: boolean;
   }
+
+  // Ensure data.recipes exists and add cooked/gifted properties
+  let recipes: Recipe[] = Array.isArray(data?.recipes) ? data.recipes.map((recipe: Recipe) => ({
+    ...recipe,
+    cooked: recipe.cooked ?? false,
+    gifted: recipe.gifted ?? false,
+  })) : [];
+
+  let searchTerm = '';
+  let sortBy = 'recipeCategory';
+  let sortOrder = 'asc';
+
+  // Load status from localStorage on mount
+  onMount(() => {
+    if (browser) {
+      const savedStatusesRaw = localStorage.getItem(RECIPE_STATUS_KEY);
+      if (savedStatusesRaw) {
+        try {
+          const savedStatuses: AllRecipeStatuses = JSON.parse(savedStatusesRaw);
+          // Create a new array to trigger reactivity
+          recipes = recipes.map(recipe => {
+            const saved = savedStatuses[recipe.id];
+            return saved ? { ...recipe, cooked: saved.cooked, gifted: saved.gifted } : recipe;
+          });
+        } catch (e) {
+          console.error("Failed to parse recipe statuses from localStorage", e);
+          localStorage.removeItem(RECIPE_STATUS_KEY); // Clear corrupted data
+        }
+      }
+    }
+  });
+
+  // Reactive statement to save status to localStorage whenever recipes change
+  $: if (browser && recipes) {
+    const statusesToSave: AllRecipeStatuses = recipes.reduce((acc, recipe) => {
+      acc[recipe.id] = { cooked: recipe.cooked, gifted: recipe.gifted };
+      return acc;
+    }, {} as AllRecipeStatuses);
+    localStorage.setItem(RECIPE_STATUS_KEY, JSON.stringify(statusesToSave));
+    // console.log('Recipe statuses saved to localStorage'); // Optional: for debugging
+  }
+
 
   function toggleSort(field: string): void {
     if (sortBy === field) {
@@ -136,16 +178,28 @@
   {:else if searchTerm.trim()}
     <!-- When searching, show a flat list without category headers -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {#each sortedRecipes as recipe}
+      {#each sortedRecipes as recipe (recipe.id)}
         <article class="card preset-filled-surface-100-900 p-4">
           <header class="flex justify-between items-start mb-2">
             <h3 class="h3">{recipe.name}</h3>
             <div class="flex gap-2">
-              <Switch name={`cooked-${recipe.id}`} bind:checked={recipe.cooked} compact controlActive="bg-success-500">
+              <Switch
+                name={`cooked-${recipe.id}`}
+                checked={recipe.cooked}
+                onCheckedChange={(e) => recipe.cooked = e.checked}
+                compact
+                controlActive="bg-success-500"
+              >
                 {#snippet inactiveChild()}🍳{/snippet}
                 {#snippet activeChild()}✅{/snippet}
               </Switch>
-              <Switch name={`gifted-${recipe.id}`} bind:checked={recipe.gifted} compact controlActive="bg-tertiary-500">
+              <Switch
+                name={`gifted-${recipe.id}`}
+                checked={recipe.gifted}
+                onCheckedChange={(e) => recipe.gifted = e.checked}
+                compact
+                controlActive="bg-tertiary-500"
+              >
                 {#snippet inactiveChild()}🎁{/snippet}
                 {#snippet activeChild()}🎀{/snippet}
               </Switch>
@@ -196,33 +250,33 @@
 
           <!-- Recipes Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {#each recipesByCategory[category] as recipe}
+            {#each recipesByCategory[category] as recipe (recipe.id)}
               <article class="card preset-filled-surface-100-900 p-4">
                 <header class="flex justify-between items-start mb-2">
                   <h3 class="h3">{recipe.name}</h3>
-            <div class="flex gap-2">
-              <Switch
-                name={`cooked-${recipe.id}`}
-                checked={recipe.cooked}
-                onCheckedChange={(e) => recipe.cooked = e.checked}
-                compact
-                controlActive="bg-success-500"
-              >
-                {#snippet inactiveChild()}🍳{/snippet}
-                {#snippet activeChild()}✅{/snippet}
-              </Switch>
-              <Switch
-                name={`gifted-${recipe.id}`}
-                checked={recipe.gifted}
-                onCheckedChange={(e) => recipe.gifted = e.checked}
-                compact
-                controlActive="bg-tertiary-500"
-              >
-                {#snippet inactiveChild()}🎁{/snippet}
-                {#snippet activeChild()}🎀{/snippet}
-              </Switch>
-            </div>
-          </header>
+                  <div class="flex gap-2">
+                    <Switch
+                      name={`cooked-${recipe.id}`}
+                      checked={recipe.cooked}
+                      onCheckedChange={(e) => recipe.cooked = e.checked}
+                      compact
+                      controlActive="bg-success-500"
+                    >
+                      {#snippet inactiveChild()}🍳{/snippet}
+                      {#snippet activeChild()}✅{/snippet}
+                    </Switch>
+                    <Switch
+                      name={`gifted-${recipe.id}`}
+                      checked={recipe.gifted}
+                      onCheckedChange={(e) => recipe.gifted = e.checked}
+                      compact
+                      controlActive="bg-tertiary-500"
+                    >
+                      {#snippet inactiveChild()}🎁{/snippet}
+                      {#snippet activeChild()}🎀{/snippet}
+                    </Switch>
+                  </div>
+                </header>
 
                 <p class="opacity-75 mb-4">{recipe.description}</p>
 
