@@ -19,7 +19,7 @@ export async function load() {
   try {
     // Use Vite's import.meta.glob to import all JSON files at build time
     const recipeModules = /** @type {Record<string, any>} */ (
-      import.meta.glob('/static/recipes/*.json', { eager: true })
+      import.meta.glob('../../../static/recipes/*.json', { eager: true })
     );
 
     // Process the imported modules into recipe objects

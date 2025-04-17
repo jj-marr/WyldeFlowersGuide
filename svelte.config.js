@@ -8,14 +8,18 @@ const config = {
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html',
+			// default options are shown
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html', // or '404.html' or null depending on needs
 			precompress: false,
 			strict: true
 		}),
-		// Enable prerendering for all pages
+		// Ensure prerendering is enabled for all pages for a static site
 		prerender: { entries: ['*'] }
 	}
 };
 
 export default config;
+// Ensure global prerender is enabled
 export const prerender = true;
