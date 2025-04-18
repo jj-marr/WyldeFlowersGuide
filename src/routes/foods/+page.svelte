@@ -22,6 +22,7 @@
   let sortBy: keyof Recipe = 'recipeCategory'; // Explicitly type sortBy
   let sortOrder = 'asc';
   let hideCooked = false; // Track whether to hide cooked recipes
+  let hideGifted = false; // Track whether to hide gifted recipes and non-favourites
 
   // Load status from localStorage on mount
   onMount(() => {
@@ -78,10 +79,13 @@
     }
   }
 
-  // Filtered recipes based on search and hideCooked setting
+  // Filtered recipes based on search and filter settings
   $: filteredRecipes = recipes.filter((recipe) => {
-    // First check if we should hide cooked recipes
+    // Check if we should hide cooked recipes
     if (hideCooked && recipe.cooked) return false;
+
+    // Check if we should hide gifted recipes or non-favourites
+    if (hideGifted && (recipe.gifted || !recipe.favouriteOf)) return false;
 
     // Then apply search filter
     if (!searchTerm.trim()) return true;
@@ -166,7 +170,13 @@
         class="chip {hideCooked ? 'preset-filled-success-500' : 'preset-tonal'}"
         on:click={() => hideCooked = !hideCooked}
       >
-        {hideCooked ? 'Showing uncrafted only' : 'Show all recipes'}
+        {hideCooked ? 'Showing uncrafted only' : 'Showing cooked recipes'}
+      </button>
+      <button
+        class="chip {hideGifted ? 'preset-filled-tertiary-500' : 'preset-tonal'}"
+        on:click={() => hideGifted = !hideGifted}
+      >
+        {hideGifted ? 'Showing ungifted favourites only' : 'Showing gifted recipes'}
       </button>
     </div>
   </div>
@@ -176,6 +186,7 @@
       {filteredRecipes.length} {filteredRecipes.length === 1 ? 'recipe' : 'recipes'} found
       {searchTerm ? `for "${searchTerm}"` : ''}
       {hideCooked ? ' (hiding crafted recipes)' : ''}
+      {hideGifted ? ' (hiding gifted recipes and non-favourites)' : ''}
     </p>
   </div>
 
