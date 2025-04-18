@@ -148,7 +148,7 @@
   $: categories = Object.keys(recipesByCategory).sort();
 </script>
 
-<div class="max-w-4xl mx-auto p-4 space-y-6">
+<div class="max-w-4xl mx-auto p-4 space-y-6 h-full w-full">
   <header class="card preset-filled-primary-500 p-4 text-center">
     <h1 class="h1">Wylde Flowers Guide - Recipes</h1>
     <p class="opacity-75">Discover delicious recipes from Fairhaven</p>

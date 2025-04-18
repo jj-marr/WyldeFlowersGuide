@@ -10,7 +10,7 @@
 	let { children } = $props();
   </script>
 
-<div class="card border-surface-100-900 grid h-screen w-full grid-cols-[auto_1fr] border-[1px]">
+<div class="card border-surface-100-900 grid h-full w-full grid-cols-[auto_1fr] border-[1px] overflow-hidden">
   <!-- Navigation Rail -->
   <Navigation.Rail {value} onValueChange={(newValue) => (value = newValue)}>
     {#snippet tiles()}
