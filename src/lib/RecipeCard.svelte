@@ -22,16 +22,18 @@
         {#snippet inactiveChild()}🍳{/snippet}
         {#snippet activeChild()}✅{/snippet}
       </Switch>
-      <Switch
-        name={`gifted-${recipe.id}`}
-        checked={recipe.gifted}
-        onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
-        compact
-        controlActive="bg-tertiary-500"
-      >
-        {#snippet inactiveChild()}🎁{/snippet}
-        {#snippet activeChild()}🎀{/snippet}
-      </Switch>
+      {#if recipe.favouriteOf}
+        <Switch
+          name={`gifted-${recipe.id}`}
+          checked={recipe.gifted}
+          onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
+          compact
+          controlActive="bg-tertiary-500"
+        >
+          {#snippet inactiveChild()}🎁{/snippet}
+          {#snippet activeChild()}🎀{/snippet}
+        </Switch>
+      {/if}
     </div>
   </header>
 
