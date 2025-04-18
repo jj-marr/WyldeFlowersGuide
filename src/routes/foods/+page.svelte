@@ -21,6 +21,7 @@
   let searchTerm = '';
   let sortBy: keyof Recipe = 'recipeCategory'; // Explicitly type sortBy
   let sortOrder = 'asc';
+  let hideCooked = false; // Track whether to hide cooked recipes
 
   // Load status from localStorage on mount
   onMount(() => {
@@ -77,8 +78,12 @@
     }
   }
 
-  // Filtered recipes based on search
-  $: filteredRecipes = recipes.filter((recipe) => { // Remove explicit Recipe type here if definition removed
+  // Filtered recipes based on search and hideCooked setting
+  $: filteredRecipes = recipes.filter((recipe) => {
+    // First check if we should hide cooked recipes
+    if (hideCooked && recipe.cooked) return false;
+
+    // Then apply search filter
     if (!searchTerm.trim()) return true;
 
     const term = searchTerm.toLowerCase();
@@ -88,7 +93,7 @@
       recipe.recipeCategory?.toLowerCase().includes(term) ||
       recipe.source?.toLowerCase().includes(term) ||
       recipe.favouriteOf?.toLowerCase().includes(term) ||
-      recipe.recipe?.some((ingredient) => ingredient.item.toLowerCase().includes(term)) // Remove explicit Ingredient type
+      recipe.recipe?.some((ingredient) => ingredient.item.toLowerCase().includes(term))
     );
   });
 
@@ -154,12 +159,23 @@
         Category {sortBy === 'recipeCategory' ? (sortOrder === 'asc' ? '↑' : '↓') : ''}
       </button>
     </div>
+
+    <div class="flex flex-wrap gap-2 mt-4">
+      <span class="font-bold">Filter:</span>
+      <button
+        class="chip {hideCooked ? 'preset-filled-success-500' : 'preset-tonal'}"
+        on:click={() => hideCooked = !hideCooked}
+      >
+        {hideCooked ? 'Showing uncrafted only' : 'Show all recipes'}
+      </button>
+    </div>
   </div>
 
   <div class="card preset-filled-surface-100-900 p-4 mb-4">
     <p>
       {filteredRecipes.length} {filteredRecipes.length === 1 ? 'recipe' : 'recipes'} found
       {searchTerm ? `for "${searchTerm}"` : ''}
+      {hideCooked ? ' (hiding crafted recipes)' : ''}
     </p>
   </div>
 
