@@ -1,48 +1,25 @@
 <script lang="ts">
-  import { Switch } from '@skeletonlabs/skeleton-svelte';
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
+  import RecipeCard from '$lib/RecipeCard.svelte'; // Import the new component
+  // Import shared types
+  import type { Recipe, AllRecipeStatuses, RecipeStatus } from '$lib/types';
 
   /** @type {import('./$types').PageData} */
   export let data;
 
   const RECIPE_STATUS_KEY = 'wyldeFlowersRecipeStatus'; // More unique key
 
-  // Type for storing status in localStorage
-  interface RecipeStatus {
-    cooked: boolean;
-    gifted: boolean;
-  }
-  type AllRecipeStatuses = Record<string, RecipeStatus>;
-
-  // Define TypeScript interfaces
-  interface Ingredient {
-    item: string;
-    quantity: number;
-  }
-
-  interface Recipe {
-    id: string;
-    name: string;
-    description: string;
-    sellPrice: number; // Keeping this for now, but it won't be displayed
-    recipe: Ingredient[];
-    recipeCategory: string;
-    source: string;
-    favouriteOf?: string;
-    cooked: boolean;
-    gifted: boolean;
-  }
-
   // Ensure data.recipes exists and add cooked/gifted properties
-  let recipes: Recipe[] = Array.isArray(data?.recipes) ? data.recipes.map((recipe: Recipe) => ({
+  let recipes: Recipe[] = Array.isArray(data?.recipes) ? data.recipes.map((recipe: any) => ({ // Use 'any' temporarily for mapping if Recipe type isn't fully defined here anymore
     ...recipe,
-    cooked: recipe.cooked ?? false,
-    gifted: recipe.gifted ?? false,
+    cooked: recipe.cooked ?? false, // Keep default values
+    gifted: recipe.gifted ?? false, // Keep default values
   })) : [];
 
+
   let searchTerm = '';
-  let sortBy = 'recipeCategory';
+  let sortBy: keyof Recipe = 'recipeCategory'; // Explicitly type sortBy
   let sortOrder = 'asc';
 
   // Load status from localStorage on mount
@@ -101,7 +78,7 @@
   }
 
   // Filtered recipes based on search
-  $: filteredRecipes = recipes.filter((recipe: Recipe) => {
+  $: filteredRecipes = recipes.filter((recipe) => { // Remove explicit Recipe type here if definition removed
     if (!searchTerm.trim()) return true;
 
     const term = searchTerm.toLowerCase();
@@ -111,7 +88,7 @@
       recipe.recipeCategory?.toLowerCase().includes(term) ||
       recipe.source?.toLowerCase().includes(term) ||
       recipe.favouriteOf?.toLowerCase().includes(term) ||
-      recipe.recipe?.some((ingredient: Ingredient) => ingredient.item.toLowerCase().includes(term))
+      recipe.recipe?.some((ingredient) => ingredient.item.toLowerCase().includes(term)) // Remove explicit Ingredient type
     );
   });
 
@@ -194,63 +171,7 @@
     <!-- When searching, show a flat list without category headers -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {#each sortedRecipes as recipe (recipe.id)}
-        <article class="card preset-filled-surface-100-900 p-4">
-          <header class="flex justify-between items-start mb-2">
-            <h3 class="h3">{recipe.name}</h3>
-            <div class="flex gap-2">
-              <Switch
-                name={`cooked-${recipe.id}`}
-                checked={recipe.cooked}
-                onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'cooked', e.checked)}
-                compact
-                controlActive="bg-success-500"
-              >
-                {#snippet inactiveChild()}🍳{/snippet}
-                {#snippet activeChild()}✅{/snippet}
-              </Switch>
-              <Switch
-                name={`gifted-${recipe.id}`}
-                checked={recipe.gifted}
-                onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
-                compact
-                controlActive="bg-tertiary-500"
-              >
-                {#snippet inactiveChild()}🎁{/snippet}
-                {#snippet activeChild()}🎀{/snippet}
-              </Switch>
-            </div>
-          </header>
-
-          <p class="opacity-75 mb-4">{recipe.description}</p>
-
-          <div class="grid grid-cols-2 gap-2 text-sm mb-4">
-            <div class="flex items-center gap-1">
-              <span>🍳</span>
-              <span>{recipe.recipeCategory}</span>
-            </div>
-            <div class="flex items-center gap-1">
-              <span>📚</span>
-              <span>{recipe.source}</span>
-            </div>
-            {#if recipe.favouriteOf}
-              <div class="flex items-center gap-1 col-span-2">
-                <span>❤️</span>
-                <span>{recipe.favouriteOf}'s favourite</span>
-              </div>
-            {/if}
-          </div>
-
-          {#if recipe.recipe && recipe.recipe.length > 0}
-            <div class="mb-2">
-              <h4 class="font-bold">Recipe:</h4>
-              <ul class="list-disc list-inside">
-                {#each recipe.recipe as ingredient}
-                  <li>{ingredient.quantity} {ingredient.item}</li>
-                {/each}
-              </ul>
-            </div>
-          {/if}
-        </article>
+        <RecipeCard {recipe} {updateRecipeStatus} />
       {/each}
     </div>
   {:else}
@@ -266,63 +187,7 @@
           <!-- Recipes Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {#each recipesByCategory[category] as recipe (recipe.id)}
-              <article class="card preset-filled-surface-100-900 p-4">
-                <header class="flex justify-between items-start mb-2">
-                  <h3 class="h3">{recipe.name}</h3>
-                  <div class="flex gap-2">
-                    <Switch
-                      name={`cooked-${recipe.id}`}
-                      checked={recipe.cooked}
-                      onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'cooked', e.checked)}
-                      compact
-                      controlActive="bg-success-500"
-                    >
-                      {#snippet inactiveChild()}🍳{/snippet}
-                      {#snippet activeChild()}✅{/snippet}
-                    </Switch>
-                    <Switch
-                      name={`gifted-${recipe.id}`}
-                      checked={recipe.gifted}
-                      onCheckedChange={(e) => updateRecipeStatus(recipe.id, 'gifted', e.checked)}
-                      compact
-                      controlActive="bg-tertiary-500"
-                    >
-                      {#snippet inactiveChild()}🎁{/snippet}
-                      {#snippet activeChild()}🎀{/snippet}
-                    </Switch>
-                  </div>
-                </header>
-
-                <p class="opacity-75 mb-4">{recipe.description}</p>
-
-                <div class="grid grid-cols-2 gap-2 text-sm mb-4">
-                  <div class="flex items-center gap-1">
-                    <span>🍳</span>
-                    <span>{recipe.recipeCategory}</span>
-                  </div>
-                  <div class="flex items-center gap-1">
-                    <span>📚</span>
-                    <span>{recipe.source}</span>
-                  </div>
-                  {#if recipe.favouriteOf}
-                    <div class="flex items-center gap-1 col-span-2">
-                      <span>❤️</span>
-                      <span>{recipe.favouriteOf}'s favourite</span>
-                    </div>
-                  {/if}
-                </div>
-
-                {#if recipe.recipe && recipe.recipe.length > 0}
-                  <div class="mb-2">
-                    <h4 class="font-bold">Recipe:</h4>
-                    <ul class="list-disc list-inside">
-                      {#each recipe.recipe as ingredient}
-                        <li>{ingredient.quantity} {ingredient.item}</li>
-                      {/each}
-                    </ul>
-                  </div>
-                {/if}
-              </article>
+               <RecipeCard {recipe} {updateRecipeStatus} />
             {/each}
           </div>
         </section>
