@@ -1,0 +1,13 @@
+{
+  "name": "Lemon Square",
+  "description": "A baked confection with a shortbread crust and a lemon filling.",
+  "sellPrice": 20,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Lemon", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "I'm All Ears Quest from Amira Syed (Spring Year 2)"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Berry Streusel Cake",
+  "description": "A cake topped with a crumbly streusel and mixed berries.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Strawberry", "quantity": 1 },
+    { "item": "Mulberry", "quantity": 1 },
+    { "item": "Blackberry", "quantity": 1 },
+    { "item": "Blueberry", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Caramel Apple",
+  "description": "A crisp apple coated in sweet, sticky caramel.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Apple", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus Seton (Fall Year 2)"
+}

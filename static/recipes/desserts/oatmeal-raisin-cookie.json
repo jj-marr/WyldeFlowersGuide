@@ -1,0 +1,14 @@
+{
+  "name": "Oatmeal Raisin Cookie",
+  "description": "A classic cookie made with oats and raisins.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Grape", "quantity": 1 },
+    { "item": "Oats", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

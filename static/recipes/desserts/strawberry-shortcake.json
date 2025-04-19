@@ -1,0 +1,15 @@
+{
+  "name": "Strawberry Shortcake",
+  "description": "A dessert with biscuits or cake, strawberries, and whipped cream.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Strawberry", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

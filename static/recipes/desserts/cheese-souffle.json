@@ -1,0 +1,13 @@
+{
+  "name": "Cheese Souffle",
+  "description": "A light and airy baked dish made with cheese and eggs.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Cheese", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Woods/Lake Fishing, Ocean Fishing"
+}

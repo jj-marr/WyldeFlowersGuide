@@ -1,0 +1,13 @@
+{
+  "name": "Chocolate Cupcake",
+  "description": "A small, individual chocolate cake, often topped with frosting.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Chocolate", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Wheat", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Recipes for Bakers"
+}

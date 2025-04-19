@@ -1,0 +1,12 @@
+{
+  "name": "Coconut Macaroon",
+  "description": "A small cookie made from grated coconut, egg whites, and sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Coconut", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Recipes for Bakers"
+}

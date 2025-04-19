@@ -1,0 +1,14 @@
+{
+  "name": "Nougat",
+  "description": "A sweet confection made with sugar, honey, nuts, and egg white.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Berry or Apple", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Honey", "quantity": 1 },
+    { "item": "Pistachio", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "More Recipes for Bakers"
+}

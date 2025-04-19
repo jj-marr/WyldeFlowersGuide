@@ -1,0 +1,13 @@
+{
+  "name": "Blueberry Tart",
+  "description": "A sweet tart filled with fresh blueberries.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Blueberries", "quantity": 5 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Fall Year 1)"
+}

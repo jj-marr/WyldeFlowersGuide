@@ -1,0 +1,13 @@
+{
+  "name": "Baklava",
+  "description": "A rich, sweet pastry made of layers of filo filled with chopped nuts and sweetened with honey.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Honey", "quantity": 1 },
+    { "item": "Pistachio", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mine chest (level 19)"
+}

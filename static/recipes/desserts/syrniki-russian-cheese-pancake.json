@@ -1,0 +1,13 @@
+{
+  "name": "Syrniki (Russian Cheese Pancake)",
+  "description": "Fried cheese pancakes, often served with fruit or jam.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Berry or Apple", "quantity": 1 },
+    { "item": "Cheese", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

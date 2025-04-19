@@ -1,0 +1,13 @@
+{
+  "name": "Blackberry Cheesecake",
+  "description": "A creamy cheesecake infused with the flavour of blackberries.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Cream Cheese", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Blackberry", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

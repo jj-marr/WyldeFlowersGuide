@@ -1,0 +1,14 @@
+{
+  "name": "Texas Brownie",
+  "description": "A rich, chocolatey brownie with a hint of coffee.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Chocolate", "quantity": 1 },
+    { "item": "Coffee", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

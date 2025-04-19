@@ -1,0 +1,13 @@
+{
+  "name": "Anzac Biscuit",
+  "description": "A traditional Australian oat cookie with a sweet honey flavour.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Wheat", "quantity": 1 },
+    { "item": "Honey", "quantity": 1 },
+    { "item": "Oats", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mine chest (level 20)"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Persian Love Cake",
+  "description": "A fragrant cake flavored with rosewater, cardamom, and saffron.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Almond", "quantity": 1 },
+    { "item": "Rose Water", "quantity": 1 },
+    { "item": "Saffron", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Large rock on Farm"
+}

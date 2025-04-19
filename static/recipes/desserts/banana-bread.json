@@ -1,0 +1,13 @@
+{
+  "name": "Banana Bread",
+  "description": "A moist, sweet bread made with mashed bananas and walnuts for a delightful texture.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Banana", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Wheat", "quantity": 1 },
+    { "item": "Walnut", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Recipes for Bakers"
+}

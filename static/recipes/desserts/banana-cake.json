@@ -1,0 +1,13 @@
+{
+  "name": "Banana Cake",
+  "description": "A sweet and moist cake featuring the flavour of bananas.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Rice Flour", "quantity": 1 },
+    { "item": "Banana", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

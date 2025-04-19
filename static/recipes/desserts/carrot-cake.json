@@ -1,0 +1,14 @@
+{
+  "name": "Carrot Cake",
+  "description": "A moist cake made with grated carrots, often topped with cream cheese frosting.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Carrot", "quantity": 1 },
+    { "item": "Cheese", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Walnut", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Large rock on Farm"
+}

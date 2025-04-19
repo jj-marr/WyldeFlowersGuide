@@ -1,0 +1,13 @@
+{
+  "name": "Beignet",
+  "description": "A square of fried dough, often dusted with powdered sugar.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Butter", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Eury Sinclair’s Welcome Party (Summer Year 2+)"
+}

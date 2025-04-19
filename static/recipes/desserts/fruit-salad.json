@@ -1,0 +1,14 @@
+{
+  "name": "Fruit Salad",
+  "description": "A refreshing mix of various fresh fruits.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Apple", "quantity": 1 },
+    { "item": "Blueberry", "quantity": 1 },
+    { "item": "Grapes", "quantity": 1 },
+    { "item": "Pineapple", "quantity": 1 },
+    { "item": "Strawberry", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Large rock on Farm"
+}

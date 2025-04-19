@@ -1,0 +1,15 @@
+{
+  "name": "Pumpkin Pie",
+  "description": "A sweet dessert pie with a spiced pumpkin filling.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Cinnamon", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Pumpkin", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Damon Mthembu-Haas"
+}

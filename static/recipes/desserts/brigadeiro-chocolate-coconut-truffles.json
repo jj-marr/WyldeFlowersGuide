@@ -1,0 +1,13 @@
+{
+  "name": "Brigadeiro (Chocolate Coconut Truffles)",
+  "description": "Small, dense chocolate and coconut truffles.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Almond", "quantity": 1 },
+    { "item": "Chocolate", "quantity": 1 },
+    { "item": "Coconut", "quantity": 1 },
+    { "item": "Pistachio", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Ocean Fishing"
+}

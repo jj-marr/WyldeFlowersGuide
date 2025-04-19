@@ -1,0 +1,13 @@
+{
+  "name": "Malasada",
+  "description": "A Portuguese doughnut, often coated in granulated sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Cinnamon", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Ocean Fishing"
+}

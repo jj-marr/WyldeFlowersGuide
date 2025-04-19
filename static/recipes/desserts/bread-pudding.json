@@ -1,0 +1,13 @@
+{
+  "name": "Bread Pudding",
+  "description": "A dessert made with stale bread and milk or cream.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Bread", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "More Recipes for Bakers"
+}

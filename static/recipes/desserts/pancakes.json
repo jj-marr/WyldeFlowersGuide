@@ -1,0 +1,14 @@
+{
+  "name": "Pancakes",
+  "description": "Flat cakes, often served with maple syrup.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Maple Syrup", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "More Recipes for Bakers"
+}

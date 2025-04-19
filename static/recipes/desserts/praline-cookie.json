@@ -1,0 +1,13 @@
+{
+  "name": "Praline Cookie",
+  "description": "A sweet cookie featuring the flavour of pralines.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Almond", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Fishing"
+}

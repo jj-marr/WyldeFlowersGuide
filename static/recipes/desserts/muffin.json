@@ -1,0 +1,13 @@
+{
+  "name": "Muffin",
+  "description": "A small, individual baked product, often containing fruit.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Berry or Apple", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Recipes for Bakers"
+}

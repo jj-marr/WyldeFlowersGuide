@@ -1,0 +1,15 @@
+{
+  "name": "Danish",
+  "description": "A sweet pastry, often filled with fruit or cream cheese.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Blueberry", "quantity": 1 },
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mine chest (level 9)"
+}

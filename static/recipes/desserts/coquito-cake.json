@@ -1,0 +1,13 @@
+{
+  "name": "Coquito Cake",
+  "description": "A cake inspired by the traditional Puerto Rican coconut-based drink.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Coquito", "quantity": 1 },
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

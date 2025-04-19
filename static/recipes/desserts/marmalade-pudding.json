@@ -1,0 +1,13 @@
+{
+  "name": "Marmalade Pudding",
+  "description": "A steamed pudding flavored with citrus marmalade.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Orange", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

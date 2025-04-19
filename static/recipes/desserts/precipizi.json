@@ -1,0 +1,14 @@
+{
+  "name": "Precipizi",
+  "description": "A traditional Italian Christmas cookie.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Honey", "quantity": 1 },
+    { "item": "Rum", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

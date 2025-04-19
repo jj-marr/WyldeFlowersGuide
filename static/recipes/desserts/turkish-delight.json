@@ -1,0 +1,12 @@
+{
+  "name": "Turkish Delight",
+  "description": "A family of confections based on a gel of starch and sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Lemon", "quantity": 1 },
+    { "item": "Rose Water", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mine Chest (Level 4)"
+}

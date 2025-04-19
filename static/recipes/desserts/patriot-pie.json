@@ -1,0 +1,13 @@
+{
+  "name": "Patriot Pie",
+  "description": "A pie with a mix of flavours, including banana and chocolate.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Banana", "quantity": 1 },
+    { "item": "Chocolate", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

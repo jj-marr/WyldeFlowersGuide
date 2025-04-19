@@ -1,0 +1,13 @@
+{
+  "name": "Snickerdoodle",
+  "description": "A soft and chewy cookie rolled in cinnamon sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Cinnamon", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

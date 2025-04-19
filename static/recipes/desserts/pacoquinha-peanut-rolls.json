@@ -1,0 +1,12 @@
+{
+  "name": "Pacoquinha (Peanut Rolls)",
+  "description": "A Brazilian candy made from ground peanuts, sugar, and salt.",
+  "sellPrice": 20,
+  "recipe": [
+    { "item": "Wheat", "quantity": 1 },
+    { "item": "Peanut", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Farm/River Fishing, Woods/Lake Fishing, Ocean Fishing"
+}

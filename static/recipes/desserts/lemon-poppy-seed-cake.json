@@ -1,0 +1,12 @@
+{
+  "name": "Lemon Poppy Seed Cake",
+  "description": "A light and moist cake flavored with lemon and dotted with poppy seeds.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Lemon", "quantity": 1 },
+    { "item": "Cream Cheese", "quantity": 1 },
+    { "item": "Poppy", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}

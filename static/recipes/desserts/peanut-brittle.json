@@ -1,0 +1,12 @@
+{
+  "name": "Peanut Brittle",
+  "description": "A hard, flat candy made with peanuts and caramelized sugar.",
+  "sellPrice": 20,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Peanut", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

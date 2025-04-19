@@ -1,0 +1,13 @@
+{
+  "name": "Rice Pudding",
+  "description": "A creamy dessert made with rice, milk, and sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Cinnamon", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Rice", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "More Recipes for Bakers"
+}

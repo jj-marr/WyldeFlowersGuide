@@ -1,0 +1,13 @@
+{
+  "name": "Flan",
+  "description": "A caramel custard dessert with a soft, smooth texture.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Coconut", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Large rock on Farm"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Beesting Cake",
+  "description": "A German cake with a baked-on topping of honey and almonds.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Milk", "quantity": 1 },
+    { "item": "Honey", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Bee Our Guests Quest (Summer 2)"
+}

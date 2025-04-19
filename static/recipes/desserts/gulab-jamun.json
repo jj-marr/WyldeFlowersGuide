@@ -1,0 +1,12 @@
+{
+  "name": "Gulab Jamun",
+  "description": "Deep-fried milk-solid balls soaked in a rose-flavored sugar syrup.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Cheese", "quantity": 1 },
+    { "item": "Rose Water", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Giva Joshi (Fall Year 3) *must have unlocked colored candles)"
+}

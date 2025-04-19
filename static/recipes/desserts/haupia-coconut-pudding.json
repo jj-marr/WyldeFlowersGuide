@@ -1,0 +1,11 @@
+{
+  "name": "Haupia (Coconut Pudding)",
+  "description": "A traditional Hawaiian coconut milk-based dessert.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Coconut", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Tiramisu",
+  "description": "A coffee-flavored Italian dessert.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Chocolate", "quantity": 1 },
+    { "item": "Coffee", "quantity": 1 },
+    { "item": "Egg", "quantity": 1 },
+    { "item": "Wheat", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Recipes for Bakers"
+}

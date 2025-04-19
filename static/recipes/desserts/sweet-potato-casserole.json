@@ -1,0 +1,12 @@
+{
+  "name": "Sweet Potato Casserole",
+  "description": "A baked dish made with mashed sweet potatoes, sugar, and often topped with pecans or marshmallows.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Sweet Potato", "quantity": 1 },
+    { "item": "Walnut", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Mountain dig spot"
+}

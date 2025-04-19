@@ -1,0 +1,12 @@
+{
+  "name": "Churros",
+  "description": "Fried dough pastries, often coated in cinnamon sugar.",
+  "sellPrice": 80,
+  "recipe": [
+    { "item": "Chocolate", "quantity": 1 },
+    { "item": "Flour", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Woods/Lake Fishing"
+}

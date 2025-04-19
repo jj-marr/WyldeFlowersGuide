@@ -1,0 +1,13 @@
+{
+  "name": "Pumpkin Mochi Pie",
+  "description": "A pie combining the flavors of pumpkin pie with a mochi-like texture.",
+  "sellPrice": null,
+  "recipe": [
+    { "item": "Pumpkin", "quantity": 1 },
+    { "item": "Butter", "quantity": 1 },
+    { "item": "Sugar", "quantity": 1 },
+    { "item": "Rice Flour", "quantity": 1 }
+  ],
+  "recipeCategory": "Desserts",
+  "source": "Quest for Angus (Not before Winter Year 2)"
+}
