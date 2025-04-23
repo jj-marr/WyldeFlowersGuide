@@ -5,3 +5,7 @@
 @import '@skeletonlabs/skeleton/themes/modern';
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+html {
+    overflow : hidden;
+}
